@@ -48,7 +48,7 @@ def post_list(request):
 
     context={
         "object_list":queryset,
-        "title":"Registered Users of Riby.me",
+        "title":"Registered Users of Seedstars",
         "page_request_var":page_request_var,
     }
     return render(request,"post_list.html",context)
