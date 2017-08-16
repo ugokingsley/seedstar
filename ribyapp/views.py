@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.conf import settings
 from .forms import PostForm
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -23,9 +25,11 @@ def create(request):
         instance.name=name
         instance.email=email
         instance.save()
+        return HttpResponseRedirect(reverse('post_list'))
         context={
             #"title":"Thank You"
         }
+
     return render(request,"create.html",context)
 
 def post_list(request):
